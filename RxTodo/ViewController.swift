@@ -33,6 +33,7 @@ class ViewController: UITableViewController {
           })
           .disposed(by: bag)
 
+
     }
     
     // MARK: - cell functions
@@ -44,24 +45,38 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = items?[indexPath.row].name ?? "No item."
+        cell.accessoryType = items![indexPath.row].done ? .checkmark : .none
         
         return cell
     }
     
     // MARK: - click cell -> delete item
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      Observable.from([items[indexPath.row]])
-        .subscribe(Realm.rx.delete())
-        .disposed(by: bag)
+        let alert = UIAlertController(title: "Task", message: "", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Delete", style: .default) { (action) in
+            Observable.from([self.items[indexPath.row]])
+                .subscribe(Realm.rx.delete())
+                .disposed(by: self.bag)
+        }
+        let action2 = UIAlertAction(title: "Mark", style: .default) { (action) in
+            try! self.realm.write {
+                self.items[indexPath.row].done = !self.items[indexPath.row].done
+            }
+        }
+        print(items[indexPath.row].done)
+        alert.addAction(action1)
+        alert.addAction(action2)
+        present(alert, animated: true, completion: nil)
+
     }
 
     // MARK: - add item to cell 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add new Category", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add new task", message: "", preferredStyle: .alert)
 
-        let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
+        let action = UIAlertAction(title: "Add task", style: .default) { (action) in
             let newItem = Item()
             newItem.name = textField.text!
             Observable.from(object: newItem)
@@ -70,7 +85,7 @@ class ViewController: UITableViewController {
         }
 
         alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new Category"
+            alertTextField.placeholder = "Create new task"
             textField = alertTextField
         }
 
