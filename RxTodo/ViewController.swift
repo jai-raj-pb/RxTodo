@@ -6,7 +6,7 @@
 //
 
 import RealmSwift
-import RxCocoa
+//import RxCocoa
 import RxRealm
 import RxSwift
 import UIKit
@@ -18,23 +18,29 @@ class ViewController: UITableViewController {
 
     var items: Results<Item>!
     
+    var sort = 0
+    
+    @IBOutlet weak var todoTitle: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         items = realm.objects(Item.self)
         
         Observable.changeset(from: items)
-          .subscribe(onNext: { [unowned self] _, changes in
-            if let changes = changes {
-              self.tableView.applyChangeset(changes)
-            } else {
-              self.tableView.reloadData()
-            }
-          })
-          .disposed(by: bag)
-
+            .subscribe(
+                onNext: { [unowned self] _, changes in
+                    if let changes = changes {
+                        self.tableView.applyChangeset(changes)
+                    }
+                    self.tableView.reloadData()
+                },
+                onDisposed: {print("disposed in viewDidLoad()")}
+            )
+            .disposed(by: bag)
 
     }
+    
     
     // MARK: - cell functions
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,27 +56,50 @@ class ViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - click cell -> delete item
+    
+    // MARK: - click cell -> delete item, mark item
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Task", message: "", preferredStyle: .alert)
+        
         let action1 = UIAlertAction(title: "Delete", style: .default) { (action) in
             Observable.from([self.items[indexPath.row]])
                 .subscribe(Realm.rx.delete())
                 .disposed(by: self.bag)
         }
+        
         let action2 = UIAlertAction(title: "Mark", style: .default) { (action) in
             try! self.realm.write {
                 self.items[indexPath.row].done = !self.items[indexPath.row].done
             }
         }
-        print(items[indexPath.row].done)
         alert.addAction(action1)
         alert.addAction(action2)
         present(alert, animated: true, completion: nil)
-
+        
+        
     }
 
-    // MARK: - add item to cell 
+    // MARK: - sort
+    @IBAction func sortButtonPressed(_ sender: UIBarButtonItem) {
+
+        sort = (sort + 1) % 3
+        
+        switch(sort) {
+        case 1:
+            items = realm.objects(Item.self).sorted(byKeyPath: "name")
+            todoTitle.title = "Todo (a -> z)"
+        case 2:
+            items = realm.objects(Item.self).sorted(byKeyPath: "name", ascending: false)
+            todoTitle.title = "Todo (z -> a)"
+        default:
+            items = realm.objects(Item.self).sorted(byKeyPath: "created")
+            todoTitle.title = "Todo (recent)"
+        }
+
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - add item to cell
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
@@ -79,6 +108,7 @@ class ViewController: UITableViewController {
         let action = UIAlertAction(title: "Add task", style: .default) { (action) in
             let newItem = Item()
             newItem.name = textField.text!
+            newItem.created = Date()
             Observable.from(object: newItem)
                 .subscribe(Realm.rx.add())
                 .disposed(by: self.bag)

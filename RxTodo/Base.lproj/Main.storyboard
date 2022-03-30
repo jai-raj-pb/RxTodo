@@ -19,7 +19,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="Todo Items" id="PBS-z9-uom">
+                                <navigationItem title="Todo (recent)" id="PBS-z9-uom">
+                                    <barButtonItem key="leftBarButtonItem" title="Sort" id="7dK-q0-ddt">
+                                        <connections>
+                                            <action selector="sortButtonPressed:" destination="H0f-lF-K24" id="Mp3-V1-3af"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="bKJ-Pm-FXI">
                                         <connections>
                                             <action selector="addButtonPressed:" destination="H0f-lF-K24" id="FUH-a2-7vi"/>
@@ -45,6 +50,9 @@
                     </tableView>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="todoTitle" destination="PBS-z9-uom" id="WS8-be-gqj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zw-U5-WOR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

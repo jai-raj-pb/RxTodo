@@ -7,6 +7,7 @@ target 'RxTodo' do
 
   # Pods for RxTodo
   pod 'RxRealm'
+#  pod 'Toast-Swift'
 #  pod 'RealmSwift'
 
 end

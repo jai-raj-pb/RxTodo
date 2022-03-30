@@ -14,11 +14,13 @@
 		89A38F9827EDAAED00D34AF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A38F9727EDAAED00D34AF8 /* Assets.xcassets */; };
 		89A38F9B27EDAAED00D34AF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A38F9927EDAAED00D34AF8 /* LaunchScreen.storyboard */; };
 		89A38FA327EDABFB00D34AF8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A38FA227EDABFB00D34AF8 /* Model.swift */; };
+		D5AF55F89C429C8786011D4F /* Pods_RxTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5586C1921E2514664A66B0EF /* Pods_RxTodo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27BE6399A65A4CAAF0BD33E8 /* Pods-RxTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTodo.debug.xcconfig"; path = "Target Support Files/Pods-RxTodo/Pods-RxTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		291698F017300C6B53D699D1 /* Pods-RxTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTodo.release.xcconfig"; path = "Target Support Files/Pods-RxTodo/Pods-RxTodo.release.xcconfig"; sourceTree = "<group>"; };
+		5586C1921E2514664A66B0EF /* Pods_RxTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A38F8B27EDAAEC00D34AF8 /* RxTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A38F8E27EDAAEC00D34AF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89A38F9027EDAAEC00D34AF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AF55F89C429C8786011D4F /* Pods_RxTodo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +50,7 @@
 				89A38F8D27EDAAEC00D34AF8 /* RxTodo */,
 				89A38F8C27EDAAEC00D34AF8 /* Products */,
 				F362E3F198ABAED890E1156B /* Pods */,
+				93D034E62945A81250779683 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +75,14 @@
 				89A38F9C27EDAAED00D34AF8 /* Info.plist */,
 			);
 			path = RxTodo;
+			sourceTree = "<group>";
+		};
+		93D034E62945A81250779683 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5586C1921E2514664A66B0EF /* Pods_RxTodo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F362E3F198ABAED890E1156B /* Pods */ = {
