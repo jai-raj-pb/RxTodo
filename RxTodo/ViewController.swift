@@ -59,9 +59,9 @@ class ViewController: UITableViewController {
     
     // MARK: - click cell -> delete item, mark item
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Task", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Task", message: "", preferredStyle: .actionSheet)
         
-        let action1 = UIAlertAction(title: "Delete", style: .default) { (action) in
+        let action1 = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             Observable.from([self.items[indexPath.row]])
                 .subscribe(Realm.rx.delete())
                 .disposed(by: self.bag)
