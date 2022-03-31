@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		896711B527F605FD00546F21 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896711B427F605FD00546F21 /* Sort.swift */; };
 		89A38F8F27EDAAEC00D34AF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A38F8E27EDAAEC00D34AF8 /* AppDelegate.swift */; };
 		89A38F9127EDAAEC00D34AF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A38F9027EDAAEC00D34AF8 /* SceneDelegate.swift */; };
 		89A38F9327EDAAEC00D34AF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A38F9227EDAAEC00D34AF8 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 		27BE6399A65A4CAAF0BD33E8 /* Pods-RxTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTodo.debug.xcconfig"; path = "Target Support Files/Pods-RxTodo/Pods-RxTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		291698F017300C6B53D699D1 /* Pods-RxTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTodo.release.xcconfig"; path = "Target Support Files/Pods-RxTodo/Pods-RxTodo.release.xcconfig"; sourceTree = "<group>"; };
 		5586C1921E2514664A66B0EF /* Pods_RxTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		896711B427F605FD00546F21 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		89A38F8B27EDAAEC00D34AF8 /* RxTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A38F8E27EDAAEC00D34AF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89A38F9027EDAAEC00D34AF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				89A38F8E27EDAAEC00D34AF8 /* AppDelegate.swift */,
 				89A38F9027EDAAEC00D34AF8 /* SceneDelegate.swift */,
 				89A38F9227EDAAEC00D34AF8 /* ViewController.swift */,
+				896711B427F605FD00546F21 /* Sort.swift */,
 				89A38FA227EDABFB00D34AF8 /* Model.swift */,
 				89A38F9427EDAAEC00D34AF8 /* Main.storyboard */,
 				89A38F9727EDAAED00D34AF8 /* Assets.xcassets */,
@@ -212,6 +215,7 @@
 				89A38F9327EDAAEC00D34AF8 /* ViewController.swift in Sources */,
 				89A38F8F27EDAAEC00D34AF8 /* AppDelegate.swift in Sources */,
 				89A38F9127EDAAEC00D34AF8 /* SceneDelegate.swift in Sources */,
+				896711B527F605FD00546F21 /* Sort.swift in Sources */,
 				89A38FA327EDABFB00D34AF8 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
